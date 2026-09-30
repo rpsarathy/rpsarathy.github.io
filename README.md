@@ -1,0 +1,1 @@
+Root site for rpsarathy.github.io. Holds Google Search Console's ownership file (keep it — removing it un-verifies the domain) and redirects to the Receiptly support and privacy pages in `receiptly-privacy`.
