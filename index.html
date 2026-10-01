@@ -214,6 +214,14 @@
   .pipeline span { color: var(--muted); }
   .note { color: var(--muted); font-size: .95rem; }
   .try { margin: 24px 0 8px; }
+  .emails-title { font-weight: 600; margin: 0 0 14px; }
+  .emails { display: grid; gap: 20px; }
+  .emails figure { margin: 0; }
+  .emails a { display: block; border-radius: 10px; }
+  .emails a:focus-visible, .emails:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+  .emails img { border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 12px 28px rgba(23, 33, 29, .12); background: #fff; }
+  .emails figcaption { font-weight: 600; font-size: .95rem; margin-top: 10px; }
+  .emails-block .note { margin-top: 14px; }
   .shot { margin: 0; }
   .shot img { border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 12px 28px rgba(23, 33, 29, .12); }
   .shot a { display: block; border-radius: 10px; }
@@ -239,7 +247,12 @@
   @media (min-width: 861px) {
     .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 440px; }
     .project.reverse { align-items: center; }
-    .project.screener { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; }
+    .project.screener { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .project.screener > div > p { max-width: 70ch; }
+    .screens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
+    .screens li { max-width: none; }
+    .screens li:nth-last-child(2) { border-bottom: 1px solid var(--rule); }
+    .emails { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .phones figure:nth-child(3) { display: none; }
   }
   @media (max-width: 860px) {
@@ -259,6 +272,8 @@
       overflow-x: auto; scroll-snap-type: x mandatory; max-width: none; padding-bottom: 8px;
     }
     .phones figure { scroll-snap-align: start; }
+    .emails { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+    .emails figure { scroll-snap-align: start; }
     .phones figure:nth-child(2) { margin-top: 0; }
     section { padding: 56px 0; }
   }
@@ -381,23 +396,36 @@
         <h3>Stock Screener</h3>
         <p class="tagline">Four stock screens in your inbox before the market opens. Free, and anyone can join.</p>
         <p>Every weekday from 7:00 Eastern, four pipelines scan the S&amp;P 1500 and email what they find. Each screen is a fixed set of steps that runs the same way every morning, and the rules are published so readers can judge the output for themselves.</p>
-        <ul class="built">
-          <li><b>Daily digest.</b> Today's earnings reporters, scored 0 to 100 on news and social chatter plus revenue and EPS growth. Claude researches the top names and writes a short thesis for each.</li>
+        <ul class="built screens">
+          <li><b>Daily digest.</b> Today's earnings reporters, scored 0 to 100 on news and social chatter plus revenue and EPS growth, with a short AI-written thesis for the top names.</li>
           <li><b>Unusual volume.</b> Small and mid caps trading at 1.5 times their usual volume or more, and closing up.</li>
           <li><b>Accelerating revenue.</b> Companies whose quarter-over-quarter revenue growth has risen four quarters in a row.</li>
           <li><b>Momentum.</b> The S&amp;P 500 ranked on several trend measures at once, so no single number dominates.</li>
         </ul>
-        <p class="try"><a class="btn" href="https://stock.rpsarathy.com">Subscribe at stock.rpsarathy.com</a></p>
-        <p class="note">Mechanical screens and AI summaries, not financial advice. Runs on free data sources and a small cloud budget.</p>
+      </div>
+      <div class="emails-block">
+        <p class="emails-title">What lands in your inbox</p>
+        <div class="emails" tabindex="0" role="region" aria-label="Sample Stock Screener emails">
+          <figure>
+            <a href="https://stock.rpsarathy.com/static/emails/daily.jpg"><img src="assets/email-daily.jpg" width="720" height="780" loading="lazy" alt="The Daily digest email for October 1, 2026: a how-to-read guide, the day's biggest gainers and losers, an attention leaderboard of the most discussed tickers, and how many names scored positive or negative."></a>
+            <figcaption>Daily digest</figcaption>
+          </figure>
+          <figure>
+            <a href="https://stock.rpsarathy.com/static/emails/accelerating-revenue.jpg"><img src="assets/email-accelerating-revenue.jpg" width="720" height="780" loading="lazy" alt="The Accelerating revenue email for October 1, 2026: the day's big movers, a signal distribution across 30 names, and the top-ranked company with its score of 85 out of 100."></a>
+            <figcaption>Accelerating revenue</figcaption>
+          </figure>
+          <figure>
+            <a href="https://stock.rpsarathy.com/static/emails/momentum.jpg"><img src="assets/email-momentum.jpg" width="720" height="780" loading="lazy" alt="The Momentum email for October 1, 2026: a leaderboard of the strongest S&amp;P 500 trends, with 12-1, 6 and 3 month returns, distance from the 52-week high and volume trend for each name."></a>
+            <figcaption>Momentum</figcaption>
+          </figure>
+        </div>
+        <p class="note">Real emails from October 1, 2026. Select one to see it in full.</p>
+        <p class="try"><a class="btn" href="https://stock.rpsarathy.com">Subscribe free at stock.rpsarathy.com</a></p>
+        <p class="note">Confirmation link first, and one-click unsubscribe in every email. Mechanical screens and AI summaries, not financial advice.</p>
         <div class="project-links">
-          <a href="https://stock.rpsarathy.com">Visit the site</a>
           <a href="https://github.com/rpsarathy/stock-screener">View the code on GitHub</a>
         </div>
       </div>
-      <figure class="shot">
-        <a href="https://stock.rpsarathy.com"><img src="assets/stock-screener.jpg" width="1080" height="760" alt="The Stock Screener home page: four stock screens in your inbox before the open, with an email sign-up and the four daily screens listed in order." loading="lazy"></a>
-        <figcaption>stock.rpsarathy.com</figcaption>
-      </figure>
     </article>
   </section>
 
