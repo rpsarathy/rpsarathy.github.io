@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Parthasarathy Ramaraj, Projects</title>
-<meta name="description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and an open-source earnings and sentiment screener.">
+<meta name="description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter of four stock screens.">
 <link rel="canonical" href="https://rpsarathy.com/">
 <meta property="og:title" content="Parthasarathy Ramaraj">
-<meta property="og:description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and an open-source earnings and sentiment screener.">
+<meta property="og:description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter of four stock screens.">
 <meta property="og:url" content="https://rpsarathy.com/">
 <meta property="og:type" content="profile">
 <meta property="og:image" content="https://rpsarathy.com/assets/og-image.png">
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="Parthasarathy Ramaraj, engineering leader and hands-on AI engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Parthasarathy Ramaraj">
-<meta name="twitter:description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and an open-source earnings and sentiment screener.">
+<meta name="twitter:description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter of four stock screens.">
 <meta name="twitter:image" content="https://rpsarathy.com/assets/og-image.png">
 <script type="application/ld+json">
 {
@@ -214,6 +214,11 @@
   .pipeline span { color: var(--muted); }
   .note { color: var(--muted); font-size: .95rem; }
   .try { margin: 24px 0 8px; }
+  .shot { margin: 0; }
+  .shot img { border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 12px 28px rgba(23, 33, 29, .12); }
+  .shot a { display: block; border-radius: 10px; }
+  .shot a:focus-visible { outline: 3px solid var(--green); outline-offset: 4px; }
+  .shot figcaption { color: var(--muted); font-size: .9rem; margin-top: 10px; }
   .writing { max-width: 62ch; }
   .writing-more { margin: 18px 0 0; font-weight: 600; }
   .writing-more a { display: inline-block; padding: 10px 0; }
@@ -234,10 +239,7 @@
   @media (min-width: 861px) {
     .phones { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 440px; }
     .project.reverse { align-items: center; }
-    .project.screener { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-    .project.screener > div > p { max-width: 70ch; }
-    .project.screener .pipeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 32px; }
-    .project.screener .pipeline li:nth-last-child(-n+3) { border-bottom: 1px solid var(--rule); }
+    .project.screener { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: center; }
     .phones figure:nth-child(3) { display: none; }
   }
   @media (max-width: 860px) {
@@ -272,7 +274,7 @@
     <div>
       <h1>Parthasarathy Ramaraj</h1>
       <p class="role">Engineering leader by day. I build my own software the rest of the time.</p>
-      <p class="intro">This page is about what I make on my own: an iPhone app for receipts, a tool for reviewing how companies govern AI, and a daily earnings screener. Each one is designed, written and run by me.</p>
+      <p class="intro">This page is about what I make on my own: an iPhone app for receipts, a tool for reviewing how companies govern AI, and a free daily stock-screen newsletter. Each one is designed, written and run by me.</p>
       <p class="intro">My work history is on LinkedIn and in my resume. Most people call me Partha. I'm based in New Jersey, and I'm <strong class="open-inline">open to conversations</strong>.</p>
       <div class="actions">
         <a class="btn" href="assets/Parthasarathy_Ramaraj_Resume.pdf">Download resume (PDF)</a>
@@ -285,7 +287,7 @@
       </ul>
     </div>
 
-    <div class="receipt-slot" role="img" aria-label="My side projects printed as a receipt: one iPhone app, Receiptly.ai, tested against 220 sample receipts; an AI governance tool mapped to 3 frameworks with a 38-question vendor review; and an earnings screener with a 6-step pipeline that scores companies from 0 to 100.">
+    <div class="receipt-slot" role="img" aria-label="My side projects printed as a receipt: one iPhone app, Receiptly.ai, tested against 220 sample receipts; an AI governance tool mapped to 3 frameworks with a 38-question vendor review; and a stock screener that emails 4 daily screens and scores earnings reporters from 0 to 100.">
       <div class="receipt" aria-hidden="true">
         <p class="shop">RPSARATHY.COM</p>
         <p class="sub">Side projects, itemized</p>
@@ -294,7 +296,7 @@
           <div class="line"><dt>Sample receipts tested</dt><dd>220</dd></div>
           <div class="line"><dt>AI frameworks mapped</dt><dd>3</dd></div>
           <div class="line"><dt>Vendor review questions</dt><dd>38</dd></div>
-          <div class="line"><dt>Screener pipeline steps</dt><dd>6</dd></div>
+          <div class="line"><dt>Daily stock screens</dt><dd>4</dd></div>
           <div class="line"><dt>Earnings signal score</dt><dd>0 to 100</dd></div>
         </dl>
         <hr>
@@ -376,24 +378,26 @@
 
     <article class="project screener">
       <div>
-        <h3>Earnings and sentiment screener</h3>
-        <p class="tagline">A personal research tool, open source on GitHub.</p>
-        <p>Each morning it looks at the companies that reported earnings the day before, reads what the news and social media are saying about them, and scores each one from 0 to 100 on a signal that is deterministic and explainable. Then it writes a short rationale for the top names and emails me a digest.</p>
-        <p class="note">It's built for my own research. Nothing it produces is financial advice.</p>
+        <h3>Stock Screener</h3>
+        <p class="tagline">Four stock screens in your inbox before the market opens. Free, and anyone can join.</p>
+        <p>Every weekday from 7:00 Eastern, four pipelines scan the S&amp;P 1500 and email what they find. Each screen is a fixed set of steps that runs the same way every morning, and the rules are published so readers can judge the output for themselves.</p>
+        <ul class="built">
+          <li><b>Daily digest.</b> Today's earnings reporters, scored 0 to 100 on news and social chatter plus revenue and EPS growth. Claude researches the top names and writes a short thesis for each.</li>
+          <li><b>Unusual volume.</b> Small and mid caps trading at 1.5 times their usual volume or more, and closing up.</li>
+          <li><b>Accelerating revenue.</b> Companies whose quarter-over-quarter revenue growth has risen four quarters in a row.</li>
+          <li><b>Momentum.</b> The S&amp;P 500 ranked on several trend measures at once, so no single number dominates.</li>
+        </ul>
+        <p class="try"><a class="btn" href="https://stock.rpsarathy.com">Subscribe at stock.rpsarathy.com</a></p>
+        <p class="note">Mechanical screens and AI summaries, not financial advice. Runs on free data sources and a small cloud budget.</p>
         <div class="project-links">
+          <a href="https://stock.rpsarathy.com">Visit the site</a>
           <a href="https://github.com/rpsarathy/stock-screener">View the code on GitHub</a>
         </div>
       </div>
-      <div>
-        <ol class="pipeline" aria-label="How a daily run works">
-          <li><b>Collect</b><span>Earnings, fundamentals and quotes from Alpha Vantage, FMP, Finnhub, yfinance and SEC filings.</span></li>
-          <li><b>Listen</b><span>News, plus mentions on Reddit, StockTwits, Bluesky and Hacker News.</span></li>
-          <li><b>Score</b><span>A weighted formula written plainly enough for a person to read and tune.</span></li>
-          <li><b>Explain</b><span>Claude writes the rationale, citing the headlines and quarterly numbers it used. Prompts are versioned and tested against a golden set, and if a call fails the run falls back to a structured summary.</span></li>
-          <li><b>Check</b><span>A backtest compares past scores with later returns, so the score has to earn its keep.</span></li>
-          <li><b>Deliver</b><span>An HTML email digest and a small local dashboard. Python, FastAPI and SQLite, run as one daily cron job.</span></li>
-        </ol>
-      </div>
+      <figure class="shot">
+        <a href="https://stock.rpsarathy.com"><img src="assets/stock-screener.jpg" width="1080" height="760" alt="The Stock Screener home page: four stock screens in your inbox before the open, with an email sign-up and the four daily screens listed in order." loading="lazy"></a>
+        <figcaption>stock.rpsarathy.com</figcaption>
+      </figure>
     </article>
   </section>
 
