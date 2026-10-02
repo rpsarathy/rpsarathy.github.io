@@ -425,6 +425,28 @@
         </div>
       </div>
     </article>
+
+    <article class="project">
+      <div>
+        <h3>Quant Model</h3>
+        <p class="tagline">Quant research and paper trading for US equities, built to be honest about what works.</p>
+        <p>It pulls daily prices for the S&amp;P 500, backtests simple factor strategies net of trading costs, checks them out of sample, and runs the one that holds up against an Alpaca paper account every trading day. Paper money only: nothing trades real capital until the live record passes a 60-day acceptance bar.</p>
+        <p>Every idea gets a written go or no-go, and most of them have been no-go. That's the point of the process.</p>
+        <div class="project-links">
+          <a href="https://github.com/rpsarathy/sarathy">View the code on GitHub</a>
+        </div>
+      </div>
+      <div>
+        <ul class="built">
+          <li><b>No lookahead, enforced in one place.</b> The engine shifts every strategy's weights by a day, and a test with a perfect-foresight strategy has to fail.</li>
+          <li><b>Walk-forward validation.</b> Rolling train and test windows are stitched into one out-of-sample record, so an overfit idea shows up as a collapsed test Sharpe.</li>
+          <li><b>One code path from research to trading.</b> The daily paper loop uses the same data and strategy code as the backtests, then reconciles every fill against the intended book.</li>
+          <li><b>Guardrails in code:</b> a paper-account check, a kill switch, position and notional limits, and a market-open check.</li>
+          <li><b>Monitoring:</b> drawdown, drift and tracking error against the backtest, with Slack, webhook and email alerts and an end-of-day report.</li>
+          <li><b>Python, pandas, DuckDB and Parquet</b>, with 265 tests in pytest.</li>
+        </ul>
+      </div>
+    </article>
   </section>
 
   <section aria-labelledby="writing">
