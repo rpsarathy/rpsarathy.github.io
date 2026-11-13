@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Parthasarathy Ramaraj, Projects</title>
-<meta name="description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter of four stock screens.">
+<meta name="description" content="Side projects by Parthasarathy (Partha) Ramaraj: AgentFloor, a governed platform for running company AI agents, with a console that installs and monitors it; Receiptly.ai, an on-device iPhone receipt app in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter.">
 <link rel="canonical" href="https://rpsarathy.com/">
 <meta property="og:title" content="Parthasarathy Ramaraj">
-<meta property="og:description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter of four stock screens.">
+<meta property="og:description" content="Side projects by Parthasarathy (Partha) Ramaraj: AgentFloor, a governed platform for running company AI agents, with a console that installs and monitors it; Receiptly.ai, an on-device iPhone receipt app in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter.">
 <meta property="og:url" content="https://rpsarathy.com/">
 <meta property="og:type" content="profile">
 <meta property="og:image" content="https://rpsarathy.com/assets/og-image.png">
@@ -16,7 +16,7 @@
 <meta property="og:image:alt" content="Parthasarathy Ramaraj, engineering leader and hands-on AI engineer">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Parthasarathy Ramaraj">
-<meta name="twitter:description" content="Side projects by Parthasarathy (Partha) Ramaraj: Receiptly.ai, an on-device iPhone receipt app now in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter of four stock screens.">
+<meta name="twitter:description" content="Side projects by Parthasarathy (Partha) Ramaraj: AgentFloor, a governed platform for running company AI agents, with a console that installs and monitors it; Receiptly.ai, an on-device iPhone receipt app in public beta; an AI governance assessment tool; and Stock Screener, a free daily newsletter.">
 <meta name="twitter:image" content="https://rpsarathy.com/assets/og-image.png">
 <script type="application/ld+json">
 {
@@ -212,6 +212,7 @@
   }
   .pipeline b { font-weight: 600; }
   .pipeline span { color: var(--muted); }
+  .pipeline + .note { margin-top: 22px; }
   .note { color: var(--muted); font-size: .95rem; }
   .try { margin: 24px 0 8px; }
   .emails-title { font-weight: 600; margin: 0 0 14px; }
@@ -289,7 +290,7 @@
     <div>
       <h1>Parthasarathy Ramaraj</h1>
       <p class="role">Engineering leader by day. I build my own software the rest of the time.</p>
-      <p class="intro">This page is about what I make on my own: an iPhone app for receipts, a tool for reviewing how companies govern AI, and a free daily stock-screen newsletter. Each one is designed, written and run by me.</p>
+      <p class="intro">This page is about what I make on my own: a platform for running a company's AI agents safely, with a console that installs and monitors it, an iPhone app for receipts, a tool for reviewing how companies govern AI, and a free daily stock-screen newsletter. Each one is designed, written and run by me.</p>
       <p class="intro">My work history is on LinkedIn and in my resume. Most people call me Partha. I'm based in New Jersey, and I'm <strong class="open-inline">open to conversations</strong>.</p>
       <div class="actions">
         <a class="btn" href="assets/Parthasarathy_Ramaraj_Resume.pdf">Download resume (PDF)</a>
@@ -302,11 +303,13 @@
       </ul>
     </div>
 
-    <div class="receipt-slot" role="img" aria-label="My side projects printed as a receipt: one iPhone app, Receiptly.ai, tested against 220 sample receipts; an AI governance tool mapped to 3 frameworks with a 38-question vendor review; and a stock screener that emails 4 daily screens and scores earnings reporters from 0 to 100.">
+    <div class="receipt-slot" role="img" aria-label="My side projects printed as a receipt: one AI agent platform, AgentFloor, with 38 monitoring rules; one iPhone app, Receiptly.ai, tested against 220 sample receipts; an AI governance tool mapped to 3 frameworks with a 38-question vendor review; and a stock screener that emails 4 daily screens and scores earnings reporters from 0 to 100.">
       <div class="receipt" aria-hidden="true">
         <p class="shop">RPSARATHY.COM</p>
         <p class="sub">Side projects, itemized</p>
         <dl>
+          <div class="line"><dt>AI agent platform, AgentFloor</dt><dd>1</dd></div>
+          <div class="line"><dt>Agent monitoring rules</dt><dd>38</dd></div>
           <div class="line"><dt>iPhone app, Receiptly.ai</dt><dd>1</dd></div>
           <div class="line"><dt>Sample receipts tested</dt><dd>220</dd></div>
           <div class="line"><dt>AI frameworks mapped</dt><dd>3</dd></div>
@@ -325,6 +328,61 @@
   <section aria-labelledby="building">
     <h2 id="building">What I'm building</h2>
     <p class="lede">Projects I design, write and run myself, outside my day job.</p>
+
+    <article class="project">
+      <div>
+        <h3>AgentFloor</h3>
+        <p class="tagline">One governed place for a company's AI agents: build them, share them, run them, and see what each one costs.</p>
+        <p class="status">Private build, release 0.1.3, runs on Google Cloud</p>
+        <p>People sign in with company SSO and write <b>skills</b>: reusable, versioned instructions with typed inputs and outputs. They wire skills into <b>workflows</b> on a visual canvas and start them by hand, on a schedule, from a signed webhook or from a GitHub pull request event. Every run shows its steps, its tokens and its cost.</p>
+        <p>The rules are enforced in code, not in prompts. Permission checks run inside the tool call and fail closed. Credentials belong to whoever started the run, never to whoever wrote the skill. Every model call goes into a cost ledger, tagged with the user, run, loop iteration and skill that caused it.</p>
+        <p class="emails-title">The starter workflow, on every new pull request</p>
+        <ol class="pipeline">
+          <li><b>Load the pull request</b><span>A GitHub App event, an API call or a schedule starts the run.</span></li>
+          <li><b>Security review</b><span>A skill scores the change and lists its findings.</span></li>
+          <li><b>Code review</b><span>A second skill reads the same changes and scores them too.</span></li>
+          <li><b>Either score below 70?</b><span>If so, alert the team in Slack. If not, skip it.</span></li>
+          <li><b>Post a summary on the pull request</b><span>Results and the total cost stay on the run, even if delivery fails.</span></li>
+        </ol>
+        <p class="note">The code is private. A walkthrough is available on request: <a href="mailto:parthasarathy.ramaraj@protonmail.com?subject=AgentFloor%20walkthrough">email me</a>.</p>
+      </div>
+      <div>
+        <ul class="built">
+          <li><b>Visual workflow canvas.</b> Skill steps, connector actions, Yes/No and score branches, and an "If it fails" fallback on any step. Test runs use pretend data and never really send anything, and finished runs play back step by step on a timeline.</li>
+          <li><b>Runs survive crashes.</b> Each step saves its result and the run's checkpoint in one transaction, so any worker can pick up any run. Calls that change things carry idempotency keys. If it's unclear whether one went through, a person decides; it is never retried silently.</li>
+          <li><b>Budgets checked before the call.</b> Spend is reserved up front with one conditional database update, then settled. Costs are counted once, deduplicated on the provider's request id.</li>
+          <li><b>Schedules</b> written in words, picked from a menu or typed as cron, with time zones, daylight-saving rules, a weekly budget forecast and three separate guards against firing twice. Personal schedules run on the owner's access; company schedules need a manager's approval.</li>
+          <li><b>Signed webhooks</b> with timestamp, nonce, size and rate checks, a dead-letter list, and secret rotation with a 24-hour overlap.</li>
+          <li><b>Connectors:</b> a GitHub App set up in two clicks, Slack, email, Google Drive (results trimmed to what the person running it may open) and any outside API, with every key held in Google Secret Manager.</li>
+          <li><b>A publish gate.</b> Sharing a skill across the company needs a schema check, declared permissions, the org's policy checklist and a passing test with writes mocked.</li>
+          <li><b>Improve with AI</b> turns rough notes into a draft skill, treated as untrusted input until someone reviews it.</li>
+          <li><b>TypeScript end to end:</b> Fastify, React, Drizzle on Postgres (or embedded PGlite), Claude or OpenRouter models, tested with Vitest and Playwright. It ships as one container on Cloud Run with Cloud SQL.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>AgentFloor Tenant Admin</h3>
+        <p class="tagline">The operator console that installs AgentFloor in a customer's own Google Cloud project, sets it up, and watches it around the clock.</p>
+        <p class="status">Private build, the companion to AgentFloor</p>
+        <p>An install is a Terraform plan you review before applying: Cloud Run, Cloud SQL, Secret Manager and a service account, all inside the customer's project. An eight-step wizard then covers sign-in, models, budgets, guardrails, sandbox, notifications and a final drill, aiming for setup in 30 minutes. Every change is a dry run with a diff first, then applied only if nobody else changed it in the meantime.</p>
+        <p>The console talks to each tenant through one versioned contract and a token that can configure the tenant and nothing more. Guardrails stop most problems. This console is for the ones they miss, and it treats silence as a fault, not as proof that all is well.</p>
+        <p class="note">The code is private. A walkthrough is available on request: <a href="mailto:parthasarathy.ramaraj@protonmail.com?subject=AgentFloor%20Tenant%20Admin%20walkthrough">email me</a>.</p>
+      </div>
+      <div>
+        <ul class="built">
+          <li><b>38 detection rules shipped,</b> from blocked-network spikes and prompt-injection attempts to secrets in output, runaway agent loops and unusual spending. Each rule is tagged to 10 agentic-AI security risks and 10 sandbox properties, and CI fails if coverage drops.</li>
+          <li><b>Behavioural baselines</b> for each agent: which tools it uses, how fast it spends, when it runs and where it connects. New agents borrow the tenant's or the fleet's baseline for their first week.</li>
+          <li><b>Incidents, not alert storms.</b> Related alerts group by tenant, cause and agent. Reversible responses, such as throttling an agent, run automatically and can be undone; destructive ones wait for an operator.</li>
+          <li><b>A dead-man switch.</b> If the telemetry feed goes quiet for 60 seconds someone gets paged, and the page clears when the feed returns.</li>
+          <li><b>Flood defence.</b> Event caps per run, agent and tenant, with a priority lane so real alerts still get through. The flood itself becomes an incident.</li>
+          <li><b>Logs you can trust:</b> redaction on the way in, people pseudonymised with a per-tenant salt, planted canaries to prove the redactor works, and hash-chained export copies.</li>
+          <li><b>OpenTelemetry both ways.</b> Tenants send traces and logs in, and the console's own actions go out as spans. A CI check plants every secret it holds and fails if any of them reaches an exported span.</li>
+          <li><b>Same stack as AgentFloor</b> (TypeScript, Fastify, React, Drizzle on Postgres), plus Terraform for installs and upgrades.</li>
+        </ul>
+      </div>
+    </article>
 
     <article class="project reverse">
       <div>
